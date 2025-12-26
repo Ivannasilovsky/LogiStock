@@ -1,0 +1,39 @@
+LogiStock
+Sistema de Gestión de Inventario con Alertas Inteligentes
+
+1. ¿Qué hace el proyecto? (Funcionalidad)
+    Es una aplicación de escritorio diseñada para optimizar el control de stock en depósitos o pequeños comercios. Soluciona el problema de llevar registros en papel o en hojas de cálculo desordenadas.
+
+    Registro de Productos: Permite ingresar nuevos ítems con detalles clave (nombre, categoría, precio, cantidad).
+
+    Visualización en Tiempo Real: Muestra una tabla ordenada con todo el inventario actual.
+
+    Alertas Automáticas: Detecta qué productos tienen un stock por debajo del mínimo establecido (ej. menos de 5 unidades) y los destaca para reposición inmediata.
+
+    Persistencia de Datos: La información no se pierde al cerrar la app; queda guardada en una base de datos profesional.
+
+2. ¿Cómo funciona? (Arquitectura)
+El sistema utiliza una arquitectura de 3 Capas, separando lo que el usuario ve de lo que la computadora procesa.
+
+Capa Visual (Frontend - Tkinter):
+
+    El usuario ve una ventana con campos de texto y botones ("Guardar", "Ver Alertas").
+
+    Al hacer clic en "Guardar", la interfaz recopila los datos y se los pasa al "Gestor".
+
+Capa Lógica (Backend - Python):
+
+    Recibe los datos de la interfaz.
+
+    Aplica validaciones (ej. "que el precio no sea negativo").
+
+    Prepara la orden (Query SQL) para enviarla a la base de datos.
+
+Capa de Datos (Database - PostgreSQL):
+
+    Recibe la orden de Python.
+
+    Guarda la información de forma segura en el disco duro.
+
+    Devuelve los datos cuando se solicitan para llenar la tabla.
+
